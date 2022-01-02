@@ -21,6 +21,10 @@
     font-size: 16px;
 }
 
+/*******************************************************/
+/*              BOTÃO MENU (HAMBURGUER)                 /*
+/*******************************************************/
+
 .hamburguer{
     width: 2rem;
     height: 1.5rem;
@@ -68,6 +72,9 @@
     box-shadow: none;
 }
 
+/*******************************************************/
+/*                      HEADER                          /*
+/*******************************************************/
 
 header{
     width: 100%;
@@ -159,6 +166,10 @@ header{
     color: var(--clr-escura);
 }
 
+/*******************************************************/
+/*                     MENU LATERAL                     /*
+/*******************************************************/
+
 .sidebar{
     width: 20rem;
     height: 100vh;
@@ -168,6 +179,7 @@ header{
     right: -20rem;
     transition: .5s;
     z-index: 80;
+    border-left: .02rem solid #0f202748;
 }
 
 .show-menu .sidebar{
@@ -221,8 +233,9 @@ header{
     color: var(--clr-escura);
 }
 
-
-
+/*******************************************************/
+/*              SESSÃO CONHECIMENTOS                    /*
+/*******************************************************/
 
 .sessao-conhecimentos{
     background-color: #f5f5f5;
@@ -243,8 +256,6 @@ header{
     margin-top: 1rem;
     margin-bottom: 3rem;
 }
-
-
 
 .conhecimentos{
     display: grid;
@@ -317,7 +328,9 @@ header{
     width: 100%;
 }
 
-
+/*******************************************************/
+/*                  SESSÃO PROJETOS                     /*
+/*******************************************************/
 
 .sessao-projetos{
     display: flex;
@@ -334,6 +347,7 @@ header{
     width: 18rem;
     height: 25rem;
     position: relative;
+    overflow: hidden;
 }
 
 .card-img-wrapper{
@@ -358,11 +372,29 @@ header{
 
 .card-info{
     position: absolute;
-    bottom: 0;
+    top: 19rem;
     padding: 2rem;
     text-shadow: 0.3rem .2rem .3rem rgba(0, 0, 0, .6);
     opacity: 1;
+    transition: all .5s;
     visibility: hidden;
+}
+
+.seta-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.seta-wrapper .seta{
+    visibility: visible;
+    width: 1rem;
+    height: 1rem;
+    background-color: transparent;
+    transform: rotate(45deg);
+    border-top: 3px solid rgba(255, 255, 255, 0.560);
+    border-left: 3px solid rgba(255, 255, 255, 0.560);
+    border-right: none;
+    border-bottom: none;
     transition: all .5s;
 }
 
@@ -372,7 +404,10 @@ header{
     font-weight: 500;
     color: #eee;
     line-height: 2rem;
+    visibility: visible;
+    margin-bottom: 1rem;
 }
+
 
 .card-info h3{
     font-family: var(--font-action);
@@ -387,6 +422,7 @@ header{
     font-weight: 400;
     width: 80%;
     margin-bottom: 1.5rem;
+    
 }
 
 .card-info button{
@@ -401,15 +437,27 @@ header{
     border-radius: .3rem;
     border: none;
     box-shadow: 0 .1rem .8rem rgba(0, 0, 0, .4);
+    
 }
 
 
 .card:hover .card-info{
-    bottom: 2rem;
+    top: 1rem;
     opacity: 1;
     visibility: visible;
 }
 
+.card:hover .seta{
+    border-top: none;
+    border-left: none;
+    border-right: 3px solid rgba(255, 255, 255, 0.560);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.560);
+    margin-bottom: .5rem;
+}
+
+/*******************************************************/
+/*             MEDIA QUERY - TELAS MÉDIAS               /*
+/*******************************************************/
 
 @media screen and (max-width: 1154px){
     .conhecimentos{
@@ -483,10 +531,17 @@ header{
     }
 }
 
+/*******************************************************/
+/*          MEDIA QUERY - TELAS PEQUENAS                /*
+/*******************************************************/
 
 @media screen and (max-width: 700px){
     *{
         font-size: 14px;
+    }
+
+    .social-media{
+        bottom: 3rem;
     }
     
     .banner h1{
